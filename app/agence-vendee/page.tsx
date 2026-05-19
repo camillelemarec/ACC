@@ -7,6 +7,7 @@ import { useRef, useCallback } from "react";
 import ScrollReveal from "../../components/ScrollReveal";
 import ScrollLine from "../../components/ScrollLine";
 import Footer from "../../components/Footer";
+import { asset } from "../../lib/asset";
 
 export default function NosAgencesPage() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -55,7 +56,7 @@ export default function NosAgencesPage() {
           >
             <div className="relative">
               <Image
-                src="/images/france.svg"
+                src={asset("/images/france.svg")}
                 alt="Carte de France — Implantations Alain Coutant : Mauléon (79) et Les Sables-d'Olonne (85)"
                 width={520}
                 height={560}
@@ -153,8 +154,11 @@ export default function NosAgencesPage() {
               <ScrollReveal direction="left">
                 <div className="relative h-[45vh] md:h-[55vh] overflow-hidden rounded-2xl">
                   <motion.div
-                    style={{ y: mauleonImgY }}
-                    className="absolute inset-[-6%] bg-[url('/images/entreprise.jpg')] bg-cover bg-center"
+                    style={{
+                      y: mauleonImgY,
+                      backgroundImage: `url('${asset("/images/entreprise.jpg")}')`
+                    }}
+                    className="absolute inset-[-6%] bg-cover bg-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
                 </div>
@@ -245,8 +249,11 @@ export default function NosAgencesPage() {
           {/* Image pleine largeur avec parallaxe */}
           <div className="relative h-[50vh] md:h-[65vh] overflow-hidden">
             <motion.div
-              style={{ y: sablesImgY }}
-              className="absolute inset-[-6%] bg-[url('/images/agence-hero.avif')] bg-cover bg-center"
+              style={{
+                y: sablesImgY,
+                backgroundImage: `url('${asset("/images/agence-hero.avif")}')`
+              }}
+              className="absolute inset-[-6%] bg-cover bg-center"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-primary/40 to-primary/70" />
             <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-12 md:px-12">

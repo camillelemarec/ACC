@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import SiteLayout from "../components/SiteLayout";
+import { asset } from "../lib/asset";
 
 const serif = Playfair_Display({
   subsets: ["latin"],
@@ -20,9 +21,9 @@ export const metadata: Metadata = {
   description:
     "Entreprise familiale de couverture et patrimoine depuis 1886. L'homme et la matière, au cœur de chaque toit.",
   icons: {
-    icon: "/images/path12.svg",
-    shortcut: "/images/path12.svg",
-    apple: "/images/path12.svg"
+    icon: asset("/images/path12.svg"),
+    shortcut: asset("/images/path12.svg"),
+    apple: asset("/images/path12.svg")
   }
 };
 

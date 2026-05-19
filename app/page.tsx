@@ -11,6 +11,7 @@ import DrawingSVG from "../components/DrawingSVG";
 import ScrollReveal from "../components/ScrollReveal";
 import ScrollLine from "../components/ScrollLine";
 import FriseMicro from "../components/FriseMicro";
+import { asset } from "../lib/asset";
 
 export default function HomePage() {
   const heroRef = useRef<HTMLDivElement | null>(null);
@@ -78,7 +79,7 @@ export default function HomePage() {
             muted
             playsInline
             className="h-full w-full object-cover"
-            src="/images/Cap Sud Ouest_  Thouars _ Deux Sèvres.mp4"
+            src={asset("/images/Cap Sud Ouest_  Thouars _ Deux Sèvres.mp4")}
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/45 to-primary/70" />
@@ -128,7 +129,7 @@ export default function HomePage() {
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20">
             <div className="flex justify-center">
               <DrawingSVG
-                src="/images/ecoutecroquis.svg"
+                src={asset("/images/ecoutecroquis.svg")}
                 alt="L'écoute du client"
                 width={420}
                 height={420}
@@ -159,7 +160,7 @@ export default function HomePage() {
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20">
             <div className="flex justify-center md:order-2">
               <DrawingSVG
-                src="/images/croquisoeil.svg"
+                src={asset("/images/croquisoeil.svg")}
                 alt="Le regard sur site"
                 width={420}
                 height={420}
@@ -174,7 +175,7 @@ export default function HomePage() {
                   <span>...</span>
                   <Link href="/le-regard" className="relative -mb-0.5 ml-0.5 inline-block opacity-60 transition-opacity hover:opacity-100" aria-label="Easter egg">
                     <Image
-                      src="/images/LePetitPrincePsychiatrePsychothérapeute-removebg-preview.png"
+                      src={asset("/images/LePetitPrincePsychiatrePsychothérapeute-removebg-preview.png")}
                       alt=""
                       width={40}
                       height={40}
@@ -201,7 +202,7 @@ export default function HomePage() {
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20 pb-8 md:pb-16">
             <div className="flex justify-center">
               <DrawingSVG
-                src="/images/croquisbouche.svg"
+                src={asset("/images/croquisbouche.svg")}
                 alt="Le dialogue avec le client"
                 width={420}
                 height={420}
@@ -237,7 +238,7 @@ export default function HomePage() {
           className="pointer-events-none absolute inset-0 flex items-end justify-end opacity-[0.12]"
         >
           <Image
-            src="/images/croquischateau.svg"
+            src={asset("/images/croquischateau.svg")}
             alt=""
             width={1100}
             height={750}
@@ -250,7 +251,7 @@ export default function HomePage() {
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20">
             <ScrollReveal direction="left" className="flex justify-center">
               <Image
-                src="/images/croquistraiteaux.svg"
+                src={asset("/images/croquistraiteaux.svg")}
                 alt="La conception sur tréteaux"
                 width={420}
                 height={420}
@@ -298,7 +299,7 @@ export default function HomePage() {
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20">
             <ScrollReveal direction="left" className="flex justify-center">
               <Image
-                src="/images/croquischantier.svg"
+                src={asset("/images/croquischantier.svg")}
                 alt="La réalisation sur chantier"
                 width={550}
                 height={550}
@@ -383,8 +384,12 @@ export default function HomePage() {
           <div className="relative flex items-center justify-center bg-offwhite px-6 py-12 md:px-12">
             <div className="section-frame relative h-[50vh] md:h-[75%] w-full max-w-xl overflow-hidden rounded-2xl">
               <motion.div
-                style={{ y: entrepriseImgY, scale: entrepriseImgScale }}
-                className="absolute inset-[-8%] bg-[url('/images/entreprise.jpg')] bg-cover bg-center"
+                style={{
+                  y: entrepriseImgY,
+                  scale: entrepriseImgScale,
+                  backgroundImage: `url('${asset("/images/entreprise.jpg")}')`
+                }}
+                className="absolute inset-[-8%] bg-cover bg-center"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-primary/10" />
             </div>
@@ -400,8 +405,11 @@ export default function HomePage() {
         <div className="grid h-full md:min-h-screen items-stretch md:grid-cols-2">
           <div className="relative order-2 md:order-1 h-[50vh] md:h-auto overflow-hidden">
             <motion.div
-              style={{ y: gammesImgY }}
-              className="absolute inset-[-6%] bg-[url('/images/ed18ceb7-dd29-4805-8e4f-b1c3f880666a.jpg')] bg-cover bg-center"
+              style={{
+                y: gammesImgY,
+                backgroundImage: `url('${asset("/images/ed18ceb7-dd29-4805-8e4f-b1c3f880666a.jpg")}')`
+              }}
+              className="absolute inset-[-6%] bg-cover bg-center"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white/40" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
@@ -482,8 +490,12 @@ export default function HomePage() {
           <div className="relative flex items-center justify-center bg-offwhite px-6 py-12 md:px-12">
             <div className="section-frame relative h-[50vh] md:h-[75%] w-full max-w-xl overflow-hidden rounded-2xl">
               <motion.div
-                style={{ y: contactImgY, scale: contactImgScale }}
-                className="absolute inset-[-8%] bg-[url('/images/contact.jpg')] bg-cover bg-center"
+                style={{
+                  y: contactImgY,
+                  scale: contactImgScale,
+                  backgroundImage: `url('${asset("/images/contact.jpg")}')`
+                }}
+                className="absolute inset-[-8%] bg-cover bg-center"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-primary/10" />
             </div>

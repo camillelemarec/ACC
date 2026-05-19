@@ -1,6 +1,7 @@
 import Logo from "../../components/Logo";
 import Footer from "../../components/Footer";
 import TimelineSection from "../../components/TimelineSection";
+import { asset } from "../../lib/asset";
 
 const timeline = [
   {
@@ -77,10 +78,19 @@ export default function NotreHistoirePage() {
               <div className="absolute -right-6 bottom-12 h-16 w-16 rounded-full bg-primary/15 blur-2xl" />
 
               <div className="grid gap-4">
-                <div className="section-frame relative h-40 md:h-56 overflow-hidden rounded-2xl bg-[url('/images/histoirecoutant1.jpg')] bg-cover bg-center" />
+                <div
+                  className="section-frame relative h-40 md:h-56 overflow-hidden rounded-2xl bg-cover bg-center"
+                  style={{ backgroundImage: `url('${asset("/images/histoirecoutant1.jpg")}')` }}
+                />
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="section-frame relative h-32 md:h-48 overflow-hidden rounded-2xl bg-[url('/images/histoirecoutant2.jpg')] bg-cover bg-center" />
-                  <div className="section-frame relative h-32 md:h-48 overflow-hidden rounded-2xl bg-white bg-[url('/images/fa5715ae-0d56-4be3-9ebb-2b4bc224796c.jpg')] bg-contain bg-center bg-no-repeat" />
+                  <div
+                    className="section-frame relative h-32 md:h-48 overflow-hidden rounded-2xl bg-cover bg-center"
+                    style={{ backgroundImage: `url('${asset("/images/histoirecoutant2.jpg")}')` }}
+                  />
+                  <div
+                    className="section-frame relative h-32 md:h-48 overflow-hidden rounded-2xl bg-white bg-contain bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url('${asset("/images/fa5715ae-0d56-4be3-9ebb-2b4bc224796c.jpg")}')` }}
+                  />
                 </div>
               </div>
             </div>
@@ -105,7 +115,10 @@ export default function NotreHistoirePage() {
               retour, chacun porte la même exigence&nbsp;: que le travail soit
               juste, que le résultat soit unique.
             </p>
-          <div className="section-frame relative mt-10 h-[250px] md:h-[420px] overflow-hidden rounded-2xl bg-[url('/images/equipe.jpeg')] bg-cover bg-center">
+          <div
+            className="section-frame relative mt-10 h-[250px] md:h-[420px] overflow-hidden rounded-2xl bg-cover bg-center"
+            style={{ backgroundImage: `url('${asset("/images/equipe.jpeg")}')` }}
+          >
               <div className="absolute inset-0 bg-gradient-to-t from-primary/15 via-transparent to-transparent" />
             </div>
           </div>
@@ -146,7 +159,8 @@ export default function NotreHistoirePage() {
           <div className="relative h-48 rounded-2xl bg-[#f7f2e9]">
             <div className="absolute inset-0 flex items-center justify-center p-4">
               <div
-                className="h-full w-full scale-[1.3] bg-[url('/images/esc.png')] bg-contain bg-center bg-no-repeat"
+                className="h-full w-full scale-[1.3] bg-contain bg-center bg-no-repeat"
+                style={{ backgroundImage: `url('${asset("/images/esc.png")}')` }}
                 aria-label="École Supérieure de la Couverture d'Angers"
               />
             </div>
