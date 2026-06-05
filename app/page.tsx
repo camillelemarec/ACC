@@ -162,7 +162,7 @@ export default function HomePage() {
             <div className="flex justify-center md:order-2">
               <BlinkingEyeSVG
                 openSrc={asset("/images/croquisoeil.svg")}
-                closedSrc={asset("/images/oeilferme.svg")}
+                closedSrc={asset("/images/oeilferme2.svg")}
                 alt="Le regard sur site"
                 width={420}
                 height={347}
