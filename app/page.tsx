@@ -7,6 +7,7 @@ import { useRef } from "react";
 import Logo from "../components/Logo";
 import ScrollIndicator from "../components/ScrollIndicator";
 import Footer from "../components/Footer";
+import BlinkingEyeSVG from "../components/BlinkingEyeSVG";
 import DrawingSVG from "../components/DrawingSVG";
 import ScrollReveal from "../components/ScrollReveal";
 import ScrollLine from "../components/ScrollLine";
@@ -159,11 +160,12 @@ export default function HomePage() {
           {/* ─ Le Regard ─ */}
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20">
             <div className="flex justify-center md:order-2">
-              <DrawingSVG
-                src={asset("/images/croquisoeil.svg")}
+              <BlinkingEyeSVG
+                openSrc={asset("/images/croquisoeil.svg")}
+                closedSrc={asset("/images/oeilferme.svg")}
                 alt="Le regard sur site"
                 width={420}
-                height={420}
+                height={347}
                 className="w-full max-w-[20rem] md:max-w-[22rem]"
                 scrollLinked
               />
@@ -202,11 +204,11 @@ export default function HomePage() {
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20 pb-8 md:pb-16">
             <div className="flex justify-center">
               <DrawingSVG
-                src={asset("/images/croquisbouche.svg")}
+                src={asset("/images/croquisconvers.svg")}
                 alt="Le dialogue avec le client"
-                width={420}
-                height={420}
-                className="w-full max-w-[20rem] md:max-w-[22rem]"
+                width={500}
+                height={330}
+                className="w-full max-w-[500px]"
                 scrollLinked
               />
             </div>
