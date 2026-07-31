@@ -80,7 +80,7 @@ export default function HomePage() {
             muted
             playsInline
             className="h-full w-full object-cover"
-            src={asset("/images/Cap Sud Ouest_  Thouars _ Deux Sèvres.mp4")}
+            src={asset("/images/0730.mov")}
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/45 to-primary/70" />
@@ -237,14 +237,14 @@ export default function HomePage() {
       <section ref={ch2Ref} className="relative overflow-hidden bg-white">
         <motion.div
           style={{ y: ch2BgY }}
-          className="pointer-events-none absolute inset-0 flex items-end justify-end opacity-[0.12]"
+          className="pointer-events-none absolute inset-0 flex items-end justify-end opacity-[0.18] mix-blend-multiply"
         >
           <Image
-            src={asset("/images/croquischateau.svg")}
+            src={asset("/images/croquiszinc1.png")}
             alt=""
-            width={1100}
-            height={750}
-            className="w-full max-w-5xl"
+            width={1088}
+            height={690}
+            className="w-full max-w-5xl object-contain"
             aria-hidden="true"
           />
         </motion.div>

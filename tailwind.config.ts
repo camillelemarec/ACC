@@ -14,7 +14,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ["var(--font-serif)", "serif"],
-        sans: ["var(--font-sans)", "sans-serif"]
+        sans: ["var(--font-serif)", "serif"]
       },
       letterSpacing: {
         wideTitle: "0.08em"

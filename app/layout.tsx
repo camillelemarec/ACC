@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
-import { Montserrat, Playfair_Display } from "next/font/google";
+import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import SiteLayout from "../components/SiteLayout";
 import { asset } from "../lib/asset";
 
-const serif = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-serif",
-  weight: ["400", "500", "600", "700"]
-});
-
-const sans = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  weight: ["300", "400", "500", "600"]
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"]
 });
 
 export const metadata: Metadata = {
@@ -35,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${serif.variable} ${sans.variable} bg-offwhite text-primary antialiased`}
+        className={`${cormorant.variable} font-serif bg-offwhite text-primary antialiased`}
       >
         <SiteLayout>{children}</SiteLayout>
       </body>
