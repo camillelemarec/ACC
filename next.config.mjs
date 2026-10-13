@@ -10,7 +10,10 @@ const nextConfig = {
     trailingSlash: true,
   }),
   images: {
-    unoptimized: isGithubPages,
+    unoptimized: true,
+    remotePatterns: [
+      { protocol: "https", hostname: "**.backblazeb2.com" },
+    ],
   },
   webpack: (config) => {
     config.watchOptions = {

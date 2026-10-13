@@ -12,9 +12,10 @@ import DrawingSVG from "../components/DrawingSVG";
 import ScrollReveal from "../components/ScrollReveal";
 import ScrollLine from "../components/ScrollLine";
 import FriseMicro from "../components/FriseMicro";
-import { asset } from "../lib/asset";
+import { useMediaSrc } from "../components/MediaProvider";
 
 export default function HomePage() {
+  const media = useMediaSrc();
   const heroRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -26,13 +27,6 @@ export default function HomePage() {
   const heroContentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.92]);
   const heroContentY = useTransform(scrollYProgress, [0, 0.5], [0, -40]);
   const heroBottomOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
-
-  const ch2Ref = useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress: ch2Progress } = useScroll({
-    target: ch2Ref,
-    offset: ["start end", "end start"]
-  });
-  const ch2BgY = useTransform(ch2Progress, [0, 1], ["5%", "-5%"]);
 
   const entrepriseRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress: entrepriseProgress } = useScroll({
@@ -80,7 +74,7 @@ export default function HomePage() {
             muted
             playsInline
             className="h-full w-full object-cover"
-            src={asset("/images/0730.mov")}
+            src={media("/images/0730.mov")}
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/45 to-primary/70" />
@@ -130,7 +124,7 @@ export default function HomePage() {
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20">
             <div className="flex justify-center">
               <DrawingSVG
-                src={asset("/images/ecoutecroquis.svg")}
+                src={media("/images/ecoutecroquis.svg")}
                 alt="L'écoute du client"
                 width={420}
                 height={420}
@@ -161,8 +155,8 @@ export default function HomePage() {
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20">
             <div className="flex justify-center md:order-2">
               <BlinkingEyeSVG
-                openSrc={asset("/images/croquisoeil.svg")}
-                closedSrc={asset("/images/oeilferme2.svg")}
+                openSrc={media("/images/croquisoeil.svg")}
+                closedSrc={media("/images/oeilferme2.svg")}
                 alt="Le regard sur site"
                 width={420}
                 height={347}
@@ -177,7 +171,7 @@ export default function HomePage() {
                   <span>...</span>
                   <Link href="/le-regard" className="relative -mb-0.5 ml-0.5 inline-block opacity-60 transition-opacity hover:opacity-100" aria-label="Easter egg">
                     <Image
-                      src={asset("/images/LePetitPrincePsychiatrePsychothérapeute-removebg-preview.png")}
+                      src={media("/images/LePetitPrincePsychiatrePsychothérapeute-removebg-preview.png")}
                       alt=""
                       width={40}
                       height={40}
@@ -204,7 +198,7 @@ export default function HomePage() {
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20 pb-8 md:pb-16">
             <div className="flex justify-center">
               <DrawingSVG
-                src={asset("/images/croquisconvers.svg")}
+                src={media("/images/croquisconvers.svg")}
                 alt="Le dialogue avec le client"
                 width={500}
                 height={330}
@@ -234,34 +228,20 @@ export default function HomePage() {
       </div>
 
       {/* ── Chapitre 2 · Conception et Échange ── */}
-      <section ref={ch2Ref} className="relative overflow-hidden bg-white">
-        <motion.div
-          style={{ y: ch2BgY }}
-          className="pointer-events-none absolute inset-0 flex items-end justify-end opacity-[0.18] mix-blend-multiply"
-        >
-          <Image
-            src={asset("/images/croquiszinc1.png")}
-            alt=""
-            width={1088}
-            height={690}
-            className="w-full max-w-5xl object-contain"
-            aria-hidden="true"
-          />
-        </motion.div>
-
-        <div className="relative mx-auto max-w-6xl px-6 py-16 md:px-12 md:py-40">
-          <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20">
-            <ScrollReveal direction="left" className="flex justify-center">
+      <section className="relative overflow-hidden bg-white">
+        <div className="relative mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-36">
+          <div className="grid items-center gap-10 md:grid-cols-[1.35fr_0.85fr] md:gap-10 lg:gap-14">
+            <ScrollReveal direction="left" className="flex justify-center md:justify-start overflow-hidden">
               <Image
-                src={asset("/images/croquistraiteaux.svg")}
-                alt="La conception sur tréteaux"
-                width={420}
-                height={420}
-                className="w-full max-w-[20rem] md:max-w-[22rem]"
+                src={media("/images/croquistotal.png")}
+                alt="Croquis de détails de couverture"
+                width={2281}
+                height={1865}
+                className="w-full max-w-none origin-left scale-110 object-contain mix-blend-multiply md:scale-125"
               />
             </ScrollReveal>
 
-            <ScrollReveal className="text-center md:text-left">
+            <ScrollReveal className="relative z-10 text-center md:text-left">
               <span className="text-xs md:text-[0.65rem] uppercase tracking-[0.4em] text-primary/40">
                 Chapitre deux
               </span>
@@ -301,11 +281,11 @@ export default function HomePage() {
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-20">
             <ScrollReveal direction="left" className="flex justify-center">
               <Image
-                src={asset("/images/croquischantier.svg")}
-                alt="La réalisation sur chantier"
-                width={550}
-                height={550}
-                className="w-full max-w-[24rem] md:max-w-[28rem]"
+                src={media("/images/chantiertotal.png")}
+                alt="Scènes de chantier et de couverture"
+                width={1692}
+                height={1771}
+                className="w-full max-w-[32rem] md:max-w-[40rem] object-contain"
               />
             </ScrollReveal>
 
@@ -389,7 +369,7 @@ export default function HomePage() {
                 style={{
                   y: entrepriseImgY,
                   scale: entrepriseImgScale,
-                  backgroundImage: `url('${asset("/images/entreprise.jpg")}')`
+                  backgroundImage: `url('${media("/images/entreprise.jpg")}')`
                 }}
                 className="absolute inset-[-8%] bg-cover bg-center"
               />
@@ -409,7 +389,7 @@ export default function HomePage() {
             <motion.div
               style={{
                 y: gammesImgY,
-                backgroundImage: `url('${asset("/images/ed18ceb7-dd29-4805-8e4f-b1c3f880666a.jpg")}')`
+                backgroundImage: `url('${media("/images/ed18ceb7-dd29-4805-8e4f-b1c3f880666a.jpg")}')`
               }}
               className="absolute inset-[-6%] bg-cover bg-center"
             />
@@ -495,7 +475,7 @@ export default function HomePage() {
                 style={{
                   y: contactImgY,
                   scale: contactImgScale,
-                  backgroundImage: `url('${asset("/images/contact.jpg")}')`
+                  backgroundImage: `url('${media("/images/contact.jpg")}')`
                 }}
                 className="absolute inset-[-8%] bg-cover bg-center"
               />

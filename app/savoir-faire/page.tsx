@@ -1,21 +1,24 @@
 import Footer from "../../components/Footer";
 import ImageCarousel from "../../components/ImageCarousel";
-import { asset } from "../../lib/asset";
+import { mediaFromMap } from "../../lib/media-key";
+import { getSignedMediaMap } from "../../lib/b2/sign";
 
-export default function SavoirFairePage() {
+export default async function SavoirFairePage() {
+  const urls = await getSignedMediaMap();
+  const media = (path: string) => mediaFromMap(urls, path);
   const zincImages = [
-    { src: asset("/images/02cbe854-7679-4d9f-a09b-3a17e6fe9868.jpg"), alt: "Couverture en zinc" },
-    { src: asset("/images/materiau4.jpg"), alt: "Ouvrage zinc actuel" },
-    { src: asset("/images/683776df-6d19-4d1e-b474-083aa53484a2.jpg"), alt: "Détail toiture zinc" },
-    { src: asset("/images/6605c133-68a0-417a-a282-c855a66679cf.jpg"), alt: "Façonnage zinc" }
+    { src: media("/images/02cbe854-7679-4d9f-a09b-3a17e6fe9868.jpg"), alt: "Couverture en zinc" },
+    { src: media("/images/materiau4.jpg"), alt: "Ouvrage zinc actuel" },
+    { src: media("/images/683776df-6d19-4d1e-b474-083aa53484a2.jpg"), alt: "Détail toiture zinc" },
+    { src: media("/images/6605c133-68a0-417a-a282-c855a66679cf.jpg"), alt: "Façonnage zinc" }
   ];
 
   const ardoiseImages = [
-    { src: asset("/images/materiau1.jpg"), alt: "Toiture en ardoise" },
-    { src: asset("/images/5723ca3e-b330-4873-b673-3ebb573a5a78.jpg"), alt: "Ardoise traditionnelle" },
-    { src: asset("/images/0bce3e11-52f5-423a-bc5d-ab14aa7d1c81.jpg"), alt: "Pose d'ardoise" },
+    { src: media("/images/materiau1.jpg"), alt: "Toiture en ardoise" },
+    { src: media("/images/5723ca3e-b330-4873-b673-3ebb573a5a78.jpg"), alt: "Ardoise traditionnelle" },
+    { src: media("/images/0bce3e11-52f5-423a-bc5d-ab14aa7d1c81.jpg"), alt: "Pose d'ardoise" },
     {
-      src: asset("/images/c78419c5-7b48-449c-8b94-2115ccd5b110.jpg"),
+      src: media("/images/c78419c5-7b48-449c-8b94-2115ccd5b110.jpg"),
       alt: "Ardoise en format portrait",
       fit: "contain" as const
     }
@@ -23,22 +26,22 @@ export default function SavoirFairePage() {
 
   const plombCuivreImages = [
     {
-      src: asset("/images/7f266590-7783-4f6d-8e5f-065e3bbe33a2.jpg"),
+      src: media("/images/7f266590-7783-4f6d-8e5f-065e3bbe33a2.jpg"),
       alt: "Ouvrage en plomb et cuivre",
       fit: "contain" as const
     },
     {
-      src: asset("/images/9f3da7ef-632d-413b-a3ca-7ee0c14aa1ea.jpg"),
+      src: media("/images/9f3da7ef-632d-413b-a3ca-7ee0c14aa1ea.jpg"),
       alt: "Finition cuivre en format portrait",
       fit: "contain" as const
     },
-    { src: asset("/images/948a728b-1080-45aa-b0fa-4b86ee7fd7a8.jpg"), alt: "Détail couverture cuivre" }
+    { src: media("/images/948a728b-1080-45aa-b0fa-4b86ee7fd7a8.jpg"), alt: "Détail couverture cuivre" }
   ];
 
   const tuileImages = [
-    { src: asset("/images/4a57abac-0be1-4efb-9523-14277b64f463.jpg"), alt: "Toiture en tuiles" },
-    { src: asset("/images/materiau3.jpg"), alt: "Tuile actuelle" },
-    { src: asset("/images/dbb9d7ff-b7b1-4ac2-84e2-b16be43c1a8c.jpg"), alt: "Détail de tuiles" }
+    { src: media("/images/4a57abac-0be1-4efb-9523-14277b64f463.jpg"), alt: "Toiture en tuiles" },
+    { src: media("/images/materiau3.jpg"), alt: "Tuile actuelle" },
+    { src: media("/images/dbb9d7ff-b7b1-4ac2-84e2-b16be43c1a8c.jpg"), alt: "Détail de tuiles" }
   ];
 
   return (
@@ -192,7 +195,7 @@ export default function SavoirFairePage() {
             <div className="flex h-full items-center justify-center">
               <div
                 className="h-full w-full bg-contain bg-center bg-no-repeat"
-                style={{ backgroundImage: `url('${asset("/images/qualibat.png")}')` }}
+                style={{ backgroundImage: `url('${media("/images/qualibat.png")}')` }}
                 aria-label="Certifications Qualibat"
               />
             </div>
@@ -216,7 +219,7 @@ export default function SavoirFairePage() {
               <div
                 key={image}
                 className="section-frame relative h-44 md:h-64 overflow-hidden rounded-2xl bg-cover bg-center"
-                style={{ backgroundImage: `url('${asset(`/images/${image}`)}')` }}
+                style={{ backgroundImage: `url('${media(`/images/${image}`)}')` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
               </div>
@@ -243,18 +246,18 @@ export default function SavoirFairePage() {
         <div className="mt-10 grid gap-6 md:grid-cols-[1.2fr,0.8fr]">
           <div
             className="section-frame h-56 md:h-80 overflow-hidden rounded-2xl bg-cover bg-center"
-            style={{ backgroundImage: `url('${asset("/images/fenetres1.jpg")}')` }}
+            style={{ backgroundImage: `url('${media("/images/fenetres1.jpg")}')` }}
           >
             <div className="h-full w-full bg-gradient-to-br from-primary/8 via-transparent to-accent/8" />
           </div>
           <div className="space-y-4">
             <div
               className="section-frame h-28 md:h-36 overflow-hidden rounded-2xl bg-cover bg-center"
-              style={{ backgroundImage: `url('${asset("/images/fenetres2.jpg")}')` }}
+              style={{ backgroundImage: `url('${media("/images/fenetres2.jpg")}')` }}
             />
             <div
               className="section-frame h-28 md:h-36 overflow-hidden rounded-2xl bg-cover bg-center"
-              style={{ backgroundImage: `url('${asset("/images/fenetres3.jpg")}')` }}
+              style={{ backgroundImage: `url('${media("/images/fenetres3.jpg")}')` }}
             />
           </div>
         </div>

@@ -7,9 +7,10 @@ import { useRef, useCallback } from "react";
 import ScrollReveal from "../../components/ScrollReveal";
 import ScrollLine from "../../components/ScrollLine";
 import Footer from "../../components/Footer";
-import { asset } from "../../lib/asset";
+import { useMediaSrc } from "../../components/MediaProvider";
 
 export default function NosAgencesPage() {
+  const media = useMediaSrc();
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: heroProgress } = useScroll({
     target: heroRef,
@@ -56,7 +57,7 @@ export default function NosAgencesPage() {
           >
             <div className="relative">
               <Image
-                src={asset("/images/france.svg")}
+                src={media("/images/france.svg")}
                 alt="Carte de France — Implantations Alain Coutant : Mauléon (79) et Les Sables-d'Olonne (85)"
                 width={520}
                 height={560}
@@ -156,7 +157,7 @@ export default function NosAgencesPage() {
                   <motion.div
                     style={{
                       y: mauleonImgY,
-                      backgroundImage: `url('${asset("/images/entreprise.jpg")}')`
+                      backgroundImage: `url('${media("/images/entreprise.jpg")}')`
                     }}
                     className="absolute inset-[-6%] bg-cover bg-center"
                   />
@@ -251,7 +252,7 @@ export default function NosAgencesPage() {
             <motion.div
               style={{
                 y: sablesImgY,
-                backgroundImage: `url('${asset("/images/agence-hero.avif")}')`
+                backgroundImage: `url('${media("/images/agence-hero.avif")}')`
               }}
               className="absolute inset-[-6%] bg-cover bg-center"
             />

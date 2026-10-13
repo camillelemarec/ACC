@@ -1,0 +1,516 @@
+{
+  "notice": [
+    "Remplir le champ url de chaque fichier, juste après son nom.",
+    "Coller l'URL stable ou la clé d'objet Backblaze, sans paramètres de signature (pas de X-Amz-Signature, pas de jeton temporaire).",
+    "Le bucket est privé : cette URL ne sera pas mise telle quelle dans les pages. Le serveur s'en servira pour produire une URL signée.",
+    "Ne pas activer le basculement ici. Le site continue de lire public/images tant que le code n'est pas branché.",
+    "Aucun fichier du projet n'est importé par `import img from './photo.jpg'`. Tous les médias utilisés sont des chemins texte, en général via lib/asset.ts."
+  ],
+  "fichiers_utilises": [
+    {
+      "fichier": "0730.mov",
+      "url": "",
+      "chemin": "/images/0730.mov",
+      "pages": "accueil",
+      "effet": "Vidéo hero en autoplay. Zoom lié au scroll (scale). Le src doit être jouable directement par <video>, dès le premier affichage."
+    },
+    {
+      "fichier": "ecoutecroquis.svg",
+      "url": "",
+      "chemin": "/images/ecoutecroquis.svg",
+      "pages": "accueil",
+      "effet": "Dessin révélé au scroll (clip-path) via DrawingSVG et next/image."
+    },
+    {
+      "fichier": "croquisoeil.svg",
+      "url": "",
+      "chemin": "/images/croquisoeil.svg",
+      "pages": "accueil",
+      "effet": "Œil ouvert. Doit arriver en même temps que oeilferme2.svg : clignement par bascule de visibilité, plus révélation au scroll."
+    },
+    {
+      "fichier": "oeilferme2.svg",
+      "url": "",
+      "chemin": "/images/oeilferme2.svg",
+      "pages": "accueil",
+      "effet": "Œil fermé, superposé au précédent. Les deux sources font partie du même effet."
+    },
+    {
+      "fichier": "LePetitPrincePsychiatrePsychothérapeute-removebg-preview.png",
+      "url": "",
+      "chemin": "/images/LePetitPrincePsychiatrePsychothérapeute-removebg-preview.png",
+      "pages": "accueil, le-regard",
+      "effet": "Image next/image. Sur l'accueil, lien discret dans le titre. Sur /le-regard, apparition en fondu. Le chemin de /le-regard ne passe pas par asset()."
+    },
+    {
+      "fichier": "croquisconvers.svg",
+      "url": "",
+      "chemin": "/images/croquisconvers.svg",
+      "pages": "accueil",
+      "effet": "Dessin révélé au scroll (clip-path) via DrawingSVG et next/image."
+    },
+    {
+      "fichier": "croquistotal.png",
+      "url": "",
+      "chemin": "/images/croquistotal.png",
+      "pages": "accueil",
+      "effet": "Image next/image avec apparition au scroll et mix-blend-multiply. Le fichier doit garder son fond transparent ou blanc."
+    },
+    {
+      "fichier": "chantiertotal.png",
+      "url": "",
+      "chemin": "/images/chantiertotal.png",
+      "pages": "accueil",
+      "effet": "Image next/image avec apparition au scroll (ScrollReveal)."
+    },
+    {
+      "fichier": "entreprise.jpg",
+      "url": "",
+      "chemin": "/images/entreprise.jpg",
+      "pages": "accueil, agence-vendee",
+      "effet": "Fond CSS en parallaxe (déplacement vertical au scroll), sur deux pages."
+    },
+    {
+      "fichier": "ed18ceb7-dd29-4805-8e4f-b1c3f880666a.jpg",
+      "url": "",
+      "chemin": "/images/ed18ceb7-dd29-4805-8e4f-b1c3f880666a.jpg",
+      "pages": "accueil",
+      "effet": "Fond CSS en parallaxe au scroll."
+    },
+    {
+      "fichier": "contact.jpg",
+      "url": "",
+      "chemin": "/images/contact.jpg",
+      "pages": "accueil",
+      "effet": "Fond CSS en parallaxe au scroll."
+    },
+    {
+      "fichier": "path12.svg",
+      "url": "",
+      "chemin": "/images/path12.svg",
+      "pages": "toutes les pages, favicon",
+      "effet": "Logo next/image (Logo.tsx n'utilise pas asset()) et icône du site dans les metadata. Fichier très léger : une URL signée qui expire casse le favicon."
+    },
+    {
+      "fichier": "france.svg",
+      "url": "",
+      "chemin": "/images/france.svg",
+      "pages": "agence-vendee",
+      "effet": "Carte next/image, priority, scale et opacité au scroll. Les pastilles Mauléon / Les Sables sont des boutons posés par-dessus, pas dans le SVG."
+    },
+    {
+      "fichier": "agence-hero.avif",
+      "url": "",
+      "chemin": "/images/agence-hero.avif",
+      "pages": "agence-vendee",
+      "effet": "Fond CSS pleine largeur, parallaxe au scroll. Le content-type B2 doit être image/avif."
+    },
+    {
+      "fichier": "adrien-removebg-preview.png",
+      "url": "",
+      "chemin": "/images/adrien-removebg-preview.png",
+      "pages": "notre-histoire",
+      "effet": "Portrait dans le récit au scroll : position, échelle et opacité animées. next/image."
+    },
+    {
+      "fichier": "henri.png",
+      "url": "",
+      "chemin": "/images/henri.png",
+      "pages": "notre-histoire",
+      "effet": "Portrait dans le récit au scroll : position, échelle et opacité animées. next/image."
+    },
+    {
+      "fichier": "hubert.png",
+      "url": "",
+      "chemin": "/images/hubert.png",
+      "pages": "notre-histoire",
+      "effet": "Portrait dans le récit au scroll : position, échelle et opacité animées. next/image."
+    },
+    {
+      "fichier": "alain.png",
+      "url": "",
+      "chemin": "/images/alain.png",
+      "pages": "notre-histoire",
+      "effet": "Portrait dans le récit au scroll : position, échelle et opacité animées. next/image."
+    },
+    {
+      "fichier": "logohenri2.png",
+      "url": "",
+      "chemin": "/images/logohenri2.png",
+      "pages": "notre-histoire",
+      "effet": "Archive qui apparaît, tourne légèrement et s'efface avec le scroll. next/image."
+    },
+    {
+      "fichier": "henrihistoire1.png",
+      "url": "",
+      "chemin": "/images/henrihistoire1.png",
+      "pages": "notre-histoire",
+      "effet": "Archive animée au scroll autour du portrait d'Henri. next/image."
+    },
+    {
+      "fichier": "henrihistoire2.png",
+      "url": "",
+      "chemin": "/images/henrihistoire2.png",
+      "pages": "notre-histoire",
+      "effet": "Archive animée au scroll autour du portrait d'Henri. next/image."
+    },
+    {
+      "fichier": "hubert1.png",
+      "url": "",
+      "chemin": "/images/hubert1.png",
+      "pages": "notre-histoire",
+      "effet": "Archive animée au scroll autour du portrait d'Hubert. next/image."
+    },
+    {
+      "fichier": "henrihistoire4.png",
+      "url": "",
+      "chemin": "/images/henrihistoire4.png",
+      "pages": "notre-histoire",
+      "effet": "Archive animée au scroll autour du portrait d'Hubert. next/image."
+    },
+    {
+      "fichier": "henrihistoire3.png",
+      "url": "",
+      "chemin": "/images/henrihistoire3.png",
+      "pages": "notre-histoire",
+      "effet": "Archive animée au scroll autour du portrait d'Hubert. next/image."
+    },
+    {
+      "fichier": "alain1.png",
+      "url": "",
+      "chemin": "/images/alain1.png",
+      "pages": "notre-histoire",
+      "effet": "Archive animée au scroll autour du portrait d'Alain. next/image."
+    },
+    {
+      "fichier": "alain5.png",
+      "url": "",
+      "chemin": "/images/alain5.png",
+      "pages": "notre-histoire",
+      "effet": "Archive animée au scroll autour du portrait d'Alain. next/image."
+    },
+    {
+      "fichier": "alain3.png",
+      "url": "",
+      "chemin": "/images/alain3.png",
+      "pages": "notre-histoire",
+      "effet": "Archive animée au scroll autour du portrait d'Alain. next/image."
+    },
+    {
+      "fichier": "alain4.png",
+      "url": "",
+      "chemin": "/images/alain4.png",
+      "pages": "notre-histoire",
+      "effet": "Archive animée au scroll autour du portrait d'Alain. next/image."
+    },
+    {
+      "fichier": "alain2.png",
+      "url": "",
+      "chemin": "/images/alain2.png",
+      "pages": "notre-histoire",
+      "effet": "Archive animée au scroll autour du portrait d'Alain. next/image."
+    },
+    {
+      "fichier": "equipe.jpeg",
+      "url": "",
+      "chemin": "/images/equipe.jpeg",
+      "pages": "notre-histoire",
+      "effet": "Fond CSS cover, cadre fixe. Pas d'animation sur l'image elle-même."
+    },
+    {
+      "fichier": "esc.png",
+      "url": "",
+      "chemin": "/images/esc.png",
+      "pages": "notre-histoire",
+      "effet": "Fond CSS contain, agrandi en scale CSS. Pas d'animation au scroll."
+    },
+    {
+      "fichier": "02cbe854-7679-4d9f-a09b-3a17e6fe9868.jpg",
+      "url": "",
+      "chemin": "/images/02cbe854-7679-4d9f-a09b-3a17e6fe9868.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel zinc : fondu d'opacité, fond CSS cover."
+    },
+    {
+      "fichier": "materiau4.jpg",
+      "url": "",
+      "chemin": "/images/materiau4.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel zinc : fondu d'opacité, fond CSS cover."
+    },
+    {
+      "fichier": "683776df-6d19-4d1e-b474-083aa53484a2.jpg",
+      "url": "",
+      "chemin": "/images/683776df-6d19-4d1e-b474-083aa53484a2.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel zinc : fondu d'opacité, fond CSS cover."
+    },
+    {
+      "fichier": "6605c133-68a0-417a-a282-c855a66679cf.jpg",
+      "url": "",
+      "chemin": "/images/6605c133-68a0-417a-a282-c855a66679cf.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel zinc : fondu d'opacité, fond CSS cover."
+    },
+    {
+      "fichier": "materiau1.jpg",
+      "url": "",
+      "chemin": "/images/materiau1.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel ardoise : fondu d'opacité, fond CSS cover."
+    },
+    {
+      "fichier": "5723ca3e-b330-4873-b673-3ebb573a5a78.jpg",
+      "url": "",
+      "chemin": "/images/5723ca3e-b330-4873-b673-3ebb573a5a78.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel ardoise : fondu d'opacité, fond CSS cover."
+    },
+    {
+      "fichier": "0bce3e11-52f5-423a-bc5d-ab14aa7d1c81.jpg",
+      "url": "",
+      "chemin": "/images/0bce3e11-52f5-423a-bc5d-ab14aa7d1c81.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel ardoise : fondu d'opacité, fond CSS cover."
+    },
+    {
+      "fichier": "c78419c5-7b48-449c-8b94-2115ccd5b110.jpg",
+      "url": "",
+      "chemin": "/images/c78419c5-7b48-449c-8b94-2115ccd5b110.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel ardoise : fondu d'opacité, fond CSS contain."
+    },
+    {
+      "fichier": "7f266590-7783-4f6d-8e5f-065e3bbe33a2.jpg",
+      "url": "",
+      "chemin": "/images/7f266590-7783-4f6d-8e5f-065e3bbe33a2.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel plomb/cuivre : fondu d'opacité, fond CSS contain."
+    },
+    {
+      "fichier": "9f3da7ef-632d-413b-a3ca-7ee0c14aa1ea.jpg",
+      "url": "",
+      "chemin": "/images/9f3da7ef-632d-413b-a3ca-7ee0c14aa1ea.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel plomb/cuivre : fondu d'opacité, fond CSS contain."
+    },
+    {
+      "fichier": "948a728b-1080-45aa-b0fa-4b86ee7fd7a8.jpg",
+      "url": "",
+      "chemin": "/images/948a728b-1080-45aa-b0fa-4b86ee7fd7a8.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel plomb/cuivre : fondu d'opacité, fond CSS cover."
+    },
+    {
+      "fichier": "4a57abac-0be1-4efb-9523-14277b64f463.jpg",
+      "url": "",
+      "chemin": "/images/4a57abac-0be1-4efb-9523-14277b64f463.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel tuiles : fondu d'opacité, fond CSS cover."
+    },
+    {
+      "fichier": "materiau3.jpg",
+      "url": "",
+      "chemin": "/images/materiau3.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel tuiles : fondu d'opacité, fond CSS cover."
+    },
+    {
+      "fichier": "dbb9d7ff-b7b1-4ac2-84e2-b16be43c1a8c.jpg",
+      "url": "",
+      "chemin": "/images/dbb9d7ff-b7b1-4ac2-84e2-b16be43c1a8c.jpg",
+      "pages": "savoir-faire",
+      "effet": "Carousel tuiles : fondu d'opacité, fond CSS cover."
+    },
+    {
+      "fichier": "qualibat.png",
+      "url": "",
+      "chemin": "/images/qualibat.png",
+      "pages": "savoir-faire",
+      "effet": "Fond CSS contain. Pas d'animation."
+    },
+    {
+      "fichier": "ornement1.jpg",
+      "url": "",
+      "chemin": "/images/ornement1.jpg",
+      "pages": "savoir-faire",
+      "effet": "Nom assemblé dans le code (`/images/${image}`), fond CSS cover."
+    },
+    {
+      "fichier": "ornement2.jpg",
+      "url": "",
+      "chemin": "/images/ornement2.jpg",
+      "pages": "savoir-faire",
+      "effet": "Nom assemblé dans le code (`/images/${image}`), fond CSS cover."
+    },
+    {
+      "fichier": "ornement3.jpg",
+      "url": "",
+      "chemin": "/images/ornement3.jpg",
+      "pages": "savoir-faire",
+      "effet": "Nom assemblé dans le code, mais le fichier n'est pas dans public/images.",
+      "statut": "cité dans le code, absent de public/images"
+    },
+    {
+      "fichier": "fenetres1.jpg",
+      "url": "",
+      "chemin": "/images/fenetres1.jpg",
+      "pages": "savoir-faire",
+      "effet": "Fond CSS cover."
+    },
+    {
+      "fichier": "fenetres2.jpg",
+      "url": "",
+      "chemin": "/images/fenetres2.jpg",
+      "pages": "savoir-faire",
+      "effet": "Fond CSS cover."
+    },
+    {
+      "fichier": "fenetres3.jpg",
+      "url": "",
+      "chemin": "/images/fenetres3.jpg",
+      "pages": "savoir-faire",
+      "effet": "Fond CSS cover."
+    }
+  ],
+  "fichiers_non_references": [
+    {
+      "fichier": "07301.mov",
+      "url": "",
+      "chemin": "/images/07301.mov",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "0c9025f3-2ba5-4110-ba3e-3a18c9f6f698.jpg",
+      "url": "",
+      "chemin": "/images/0c9025f3-2ba5-4110-ba3e-3a18c9f6f698.jpg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "2a9c2822-ed2b-4668-a4fa-7cf5fc852b82.jpg",
+      "url": "",
+      "chemin": "/images/2a9c2822-ed2b-4668-a4fa-7cf5fc852b82.jpg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "6054341b-f579-4717-9cba-94f4fdbc4d34.jpg",
+      "url": "",
+      "chemin": "/images/6054341b-f579-4717-9cba-94f4fdbc4d34.jpg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "Cap Sud Ouest_  Thouars _ Deux Sèvres.mp4",
+      "url": "",
+      "chemin": "/images/Cap Sud Ouest_  Thouars _ Deux Sèvres.mp4",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "Logo Henri.pdf",
+      "url": "",
+      "chemin": "/images/Logo Henri.pdf",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "croquisbouche.svg",
+      "url": "",
+      "chemin": "/images/croquisbouche.svg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "croquischateau.svg",
+      "url": "",
+      "chemin": "/images/croquischateau.svg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "croquisdialogue2.svg",
+      "url": "",
+      "chemin": "/images/croquisdialogue2.svg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "croquiszinc1.png",
+      "url": "",
+      "chemin": "/images/croquiszinc1.png",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "d7b14e86-8855-46ff-b6b3-ae3ce8b23056.jpg",
+      "url": "",
+      "chemin": "/images/d7b14e86-8855-46ff-b6b3-ae3ce8b23056.jpg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "expertise.jpg",
+      "url": "",
+      "chemin": "/images/expertise.jpg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "fa5715ae-0d56-4be3-9ebb-2b4bc224796c.jpg",
+      "url": "",
+      "chemin": "/images/fa5715ae-0d56-4be3-9ebb-2b4bc224796c.jpg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "hero.jpg",
+      "url": "",
+      "chemin": "/images/hero.jpg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "histoirecoutant1.jpg",
+      "url": "",
+      "chemin": "/images/histoirecoutant1.jpg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "histoirecoutant2.jpg",
+      "url": "",
+      "chemin": "/images/histoirecoutant2.jpg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "histoirecoutant3.jpg",
+      "url": "",
+      "chemin": "/images/histoirecoutant3.jpg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "image1-0.jpeg",
+      "url": "",
+      "chemin": "/images/image1-0.jpeg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "logocoutant.png",
+      "url": "",
+      "chemin": "/images/logocoutant.png",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "materiau2.jpg",
+      "url": "",
+      "chemin": "/images/materiau2.jpg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "oeilferme.svg",
+      "url": "",
+      "chemin": "/images/oeilferme.svg",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "pagescindé.png",
+      "url": "",
+      "chemin": "/images/pagescindé.png",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    },
+    {
+      "fichier": "épingle.png",
+      "url": "",
+      "chemin": "/images/épingle.png",
+      "note": "Présent dans public/images, non référencé par le site. À renseigner s'il doit quitter Git."
+    }
+  ]
+}

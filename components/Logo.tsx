@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useMediaSrc } from "./MediaProvider";
 
 type LogoProps = {
   variant?: "light" | "dark";
@@ -11,6 +14,7 @@ export default function Logo({
   className = "",
   size = "md"
 }: LogoProps) {
+  const media = useMediaSrc();
   const isLight = variant === "light";
   const dimensions =
     size === "sm"
@@ -20,7 +24,7 @@ export default function Logo({
   return (
     <div className={`flex flex-col items-center ${className}`}>
       <Image
-        src="/images/path12.svg"
+        src={media("/images/path12.svg")}
         alt="SARL Alain Coutant"
         width={dimensions.width}
         height={dimensions.height}

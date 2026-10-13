@@ -3,8 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useMediaSrc } from "../../components/MediaProvider";
 
 export default function LeRegardPage() {
+  const media = useMediaSrc();
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#0b1026] px-6 text-white">
       {/* Fond étoilé subtil */}
@@ -34,7 +36,7 @@ export default function LeRegardPage() {
         className="relative z-10 flex max-w-2xl flex-col items-center text-center"
       >
         <Image
-          src="/images/LePetitPrincePsychiatrePsychothérapeute-removebg-preview.png"
+          src={media("/images/LePetitPrincePsychiatrePsychothérapeute-removebg-preview.png")}
           alt="Le Petit Prince"
           width={120}
           height={120}
