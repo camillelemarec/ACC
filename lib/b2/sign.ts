@@ -52,6 +52,7 @@ async function createAuth(): Promise<AuthState> {
   const basic = Buffer.from(`${keyId}:${applicationKey}`).toString("base64");
 
   const authResponse = await fetch("https://api.backblazeb2.com/b2api/v3/b2_authorize_account", {
+    cache: "no-store",
     headers: { Authorization: `Basic ${basic}` },
   });
   if (!authResponse.ok) {
@@ -69,6 +70,7 @@ async function createAuth(): Promise<AuthState> {
   if (!bucketId) {
     const listResponse = await fetch(`${storage.apiUrl}/b2api/v3/b2_list_buckets`, {
       method: "POST",
+      cache: "no-store",
       headers: {
         Authorization: auth.authorizationToken,
         "Content-Type": "application/json",
@@ -91,6 +93,7 @@ async function createAuth(): Promise<AuthState> {
   const prefix = (process.env.B2_KEY_PREFIX ?? "").replace(/^\/+|\/+$/g, "");
   const downloadResponse = await fetch(`${storage.apiUrl}/b2api/v3/b2_get_download_authorization`, {
     method: "POST",
+    cache: "no-store",
     headers: {
       Authorization: auth.authorizationToken,
       "Content-Type": "application/json",
